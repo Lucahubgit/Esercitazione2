@@ -20,3 +20,5 @@ with st.sidebar:
         ('Napoli', 'Milan', 'Roma'),
         key='Team'
     )
+
+pg.run()
