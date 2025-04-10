@@ -18,7 +18,7 @@ with st.sidebar:
     rb=st.radio(
         "Team",
         ('Napoli', 'Milan', 'Roma'),
-        key='Team'
+        key='Teams'
     )
 
 pg.run()
