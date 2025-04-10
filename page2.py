@@ -53,7 +53,9 @@ with st.expander("Table", expanded=False):  #the expander is close
     st.subheader('My table')
     st.table(data)
 
-# Secrets
+#DA QUI CI SONO DEGLI ERRORI, RIGUARDARE LA REGISTRAZIONE
+
+'''# Secrets
 st.title("Display some secrets")
 username=st.secrets["username"]
 st.write(username)
@@ -62,5 +64,25 @@ import os
 password=os.environ["password"] #environmental variable
 st.write(password)
 
-secrets_psw=st.secrets.further_secrets.secret_password
-st.write(secret_psw)
+secret_psw=st.secrets.further_secrets.secret_password
+st.write(secret_psw)'''
+
+# QUI DEVO INSTALLARE UNA LIBRERIA PER GSheets (RIVEDERE LA REGISTRAZIONE)
+from streamlit_gsheets import GSheetsConnection
+gconn=st.connection("gsheets", type=GSheetsConnection)
+#Now the connection should be available and we are ready to read it
+#df=gconn.read()    #to read everything
+df=gconn.read(
+    worksheet=0,
+    usecols=[1, 2],
+    nrows=2
+)
+st.dataframe(df)
+
+# Save same data
+import os
+cwd=os.getcwd() #to store the current working directory in a string
+filename2save=os.path.join(cwd,"data2save.csv")
+
+df.to_csv(filename2save)   #from a dataframe to a csv file. Saved like this the first column is the index, we can avoid it using: df.to_csv(filename2save, index=False)
+st.success('File saved')
