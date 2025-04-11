@@ -53,8 +53,6 @@ with st.expander("Table", expanded=False):  #the expander is close
     st.subheader('My table')
     st.table(data)
 
-#DA QUI CI SONO DEGLI ERRORI, RIGUARDARE LA REGISTRAZIONE
-
 '''# Secrets
 st.title("Display some secrets")
 username=st.secrets["username"]
