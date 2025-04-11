@@ -68,6 +68,7 @@ secret_psw=st.secrets.further_secrets.secret_password
 st.write(secret_psw)'''
 
 # QUI DEVO INSTALLARE UNA LIBRERIA PER GSheets (RIVEDERE LA REGISTRAZIONE)
+# Connection to Google Sheets
 from streamlit_gsheets import GSheetsConnection
 gconn=st.connection("gsheets", type=GSheetsConnection)
 #Now the connection should be available and we are ready to read it
